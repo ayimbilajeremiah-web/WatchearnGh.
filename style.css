@@ -1,0 +1,101 @@
+/* ===== FULL STYLE FOR WATCHEARNGH ===== */
+
+/* 1. MAKE IT COVER FULL SCREEN */
+body {
+  margin: 0;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f4f1; /* CLEAN LIGHT GREENISH WHITE */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 95%;          /* covers almost all screen */
+  max-width: 500px;    /* but not too wide on PC */
+}
+
+.center-box {
+  text-align: center;
+}
+
+/* 2. THE WHITE CARDS/BOXES */
+.box {
+  background: white;
+  padding: 25px 20px;
+  margin: 15px 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+h1 {
+  color: #006B3F; /* GHANA GREEN */
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+h2 {
+  color: #006B3F;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* 3. BUTTONS - BIG AND NICE */
+.btn {
+  background: #006B3F; /* GHANA GREEN */
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #004d2e; /* darker green */
+}
+
+.btn-secondary {
+  background: #FFD700; /* GHANA GOLD */
+  color: black;
+}
+
+.btn-secondary:hover {
+  background: #e6c200;
+}
+
+/* LINKS */
+a {
+  color: #006B3F;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* ===== DARK MODE OPTION ===== 
+   To use dark mode: change body background to #1a1a1a 
+   and .box background to #2a2a2a and text to white
+*/
+/*
+body {
+  background: #1a1a1a;
+}
+.box { 
+  background: #2a2a2a; 
+  color: white; 
+}
+h1, h2 { color: #FFD700; }
+.subtitle, p { color: #ccc; }
+*/
