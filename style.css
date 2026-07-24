@@ -99,3 +99,43 @@ body {
 h1, h2 { color: #FFD700; }
 .subtitle, p { color: #ccc; }
 */
+/* NEW FULL SCREEN CODE - ADD THIS AT BOTTOM */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important;
+  color: white !important;
+}
+
+.box {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-height: 100vh !important;
+}
+
+video {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.content {
+  padding: 15px !important;
+}
+
+h2 {
+  color: #00ff00 !important;
+}
+
+button {
+  background: #00ff00 !important;
+  color: #000 !important;
+  width: 100% !important;
+}
