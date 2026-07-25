@@ -6,21 +6,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WatchearnGh - Earn Watching Ads</title>
 <style>
-  body {background:#000; color:#0f0; font-family:Arial; text-align:center; margin:0; padding:40px 20px;}
+  body {background:#000; color:#0f0; font-family:Arial; text-align:center; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+  
+  .logo {width:100px; height:100px; margin:20px auto; background:linear-gradient(135deg,#00ff00,#00aa00); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:bold; color:#000;}
+  
+  .content {padding:20px; flex:1;}
   h1 {font-size:28px; margin-bottom:10px;}
-  p {font-size:15px; margin-bottom:30px;}
-  .btn {display:block; width:90%; max-width:320px; margin:15px auto; padding:15px; border-radius:8px; font-weight:bold; font-size:18px; text-decoration:none;}
+  p {font-size:15px; margin-bottom:20px; line-height:1.6;}
+  
+  .features {text-align:left; max-width:320px; margin:20px auto; font-size:14px;}
+  .feature {display:flex; align-items:center; margin:12px 0; gap:10px;}
+  .icon {font-size:20px;}
+  
+  .bottom-buttons {padding:20px; background:#111; border-top:1px solid #0f0;}
+  .btn {display:block; width:90%; max-width:320px; margin:10px auto; padding:14px; border-radius:8px; font-weight:bold; font-size:17px; text-decoration:none;}
   .btn-register {background:#00ff00; color:#000;}
-  .btn-login {background:#111; color:#0f0; border:1px solid #0f0; font-size:15px;}
+  .btn-login {background:transparent; color:#0f0; border:1px solid #0f0; font-size:15px;}
 </style>
 </head>
 <body>
-  <h1>Welcome to WatchearnGh 🇬🇭</h1>
-  <p>Watch ads and earn real money to Mobile Money</p>
+  <div class="content">
+    <div class="logo">WG</div>
+    <h1>WatchearnGh 🇬🇭</h1>
+    <p>Watch ads and earn real money straight to Mobile Money</p>
+    
+    <div class="features">
+      <div class="feature"><span class="icon">💰</span> Earn 0.10 GHS per ad</div>
+      <div class="feature"><span class="icon">📱</span> Withdraw from 5 GHS to MoMo</div>
+      <div class="feature"><span class="icon">⚡</span> Instant Payout</div>
+      <div class="feature"><span class="icon">🎁</span> 100% Free to Join</div>
+    </div>
+  </div>
   
-  <a href="register.html" class="btn btn-register">Register Now</a>
-  <a href="login.html" class="btn btn-login">Already have an account? Login</a>
+  <div class="bottom-buttons">
+    <a href="register.html" class="btn btn-register">Register Now</a>
+    <a href="login.html" class="btn btn-login">Already have an account? Login</a>
+  </div>
 </body>
-</html>
+</html> 
 
 
