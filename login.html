@@ -1,46 +1,29 @@
-<divOCTYPE html>
-<html>
-<head>
-  <title>Login - WatchearnGh</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - WatchearnGh</title><div class="box">
-    <h2>Login to WatchearnGh 🇬🇭</h2>
-    <form action="profile.html">
-      <input type="email" placeholder="Email" required><br><br>
-      <input type="password" placeholder="Password" required><br><br>
-      <button type="submit">Login</button>
-    </form>
-    <br>
-    <a href="index.html">Back to Home</a>
-  </div>
-</body>
-</html>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login - WatchearnGh</title>
-<link rel="stylesheet" href="style.css">
 <style>
-  body {background:#000; color:#0f0; font-family:Arial; text-align:center;}
-  .box {max-width:400px; margin:80px auto; padding:20px; background:#111; border-radius:10px;}
-  input {width:90%; padding:12px; margin:10px 0; border:none; border-radius:5px;}
-  button {width:95%; padding:12px; background:#0f0; color:#000; border:none; border-radius:5px; font-weight:bold; font-size:16px;}
+  body {background:#000; color:#0f0; font-family:Arial; text-align:center; padding:40px 20px;}
+  h2 {color:#0f0;}
+  input {width:90%; max-width:300px; padding:12px; margin:10px 0; border:none; border-radius:5px;}
+  button {width:90%; max-width:300px; padding:14px; background:#00ff00; color:#000; border:none; border-radius:5px; font-weight:bold; font-size:16px;}
   a {color:#0f0; text-decoration:none;}
 </style>
 </head>
 <body>
-  <div class="box">
-    <h2>Login to WatchearnGh 🇬🇭</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
-    <p><a href="index.html">Back to Home</a></p>
-  </div>
-</body>
-  </html>
+  <h2>Login to WatchearnGh 🇬🇭</h2>
+  <input type="email" placeholder="Email" id="email">
+  <input type="password" placeholder="Password" id="password">
+  <button onclick="login()">Login</button>
+  <p><a href="index.html">Back to Home</a></p>
 
+<script>
+function login(){
+  // For now: just go to dashboard. Later we add real check
+  window.location.href = "dashboard.html";
+}
+</script>
+</body>
+</html>
