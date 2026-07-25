@@ -59,3 +59,15 @@
   </div>
 </body>
 </html>
+<button onclick="adminLogin()">Admin Login</button>
+
+<script>
+function adminLogin(){
+  let pass = prompt("Enter Admin Password:");
+  if(pass == "admin123"){  // change this password
+    alert("Welcome Admin");
+  } else {
+    alert("Wrong Password");
+  }
+}
+</script> 
