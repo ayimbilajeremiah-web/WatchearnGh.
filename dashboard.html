@@ -23,7 +23,7 @@ input,select{width:90%;padding:10px;margin:8px 0;border:none;border-radius:6px}
 .footer a{color:#00c853;text-decoration:none;margin:0 10px}
 </style>
 </head>
-<body>
+<body> 
 
 <!-- NAVBAR - THIS JOINS ALL PAGES -->
 <div class="navbar">
@@ -62,7 +62,33 @@ input,select{width:90%;padding:10px;margin:8px 0;border:none;border-radius:6px}
   <a href="privacy.html">Privacy Policy</a>
   <a href="terms.html">Terms of Service</a>
   <p style="margin-top:10px;color:#aaa;">© 2026 Watchearn GH</p>
-</div>
+</div> 
+  <!-- BACKGROUND MUSIC -->
+<audio id="bgmusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:70px;right:15px;background:#00c853;color:white;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;z-index:999;">🔇</button>
+
+<script>
+let music = document.getElementById('bgmusic');
+let btn = document.getElementById('musicBtn');
+let playing = false;
+
+function toggleMusic(){
+  if(playing){
+    music.pause();
+    btn.innerHTML = '🔇';
+    playing = false;
+  } else {
+    music.play();
+    btn.innerHTML = '🔊';
+    playing = true;
+  }
+}
+</script> 
+ 
 
 </body>
 </html> 
