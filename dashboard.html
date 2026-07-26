@@ -3,19 +3,29 @@
 <head>
 <title>Dashboard - Watchearn GH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{background:#0a1a2a;color:#fff;font-family:Arial;margin:0;padding:0;text-align:center}
-.navbar{background:#000;padding:15px;display:flex;align-items:center;justify-content:space-between}
-.navbar .logo{display:flex;align-items:center;color:#fff;font-weight:bold;font-size:18px}
-.navbar .logo img{height:35px;margin-right:8px;border-radius:5px}
-.navbar a{color:white;margin:0 10px;text-decoration:none;font-weight:bold}
-.navbar a:hover{color:#00c853}
-.box{background:#1a2a3a;padding:20px;border-radius:12px;max-width:500px;margin:20px auto}
-.btn{background:#00c853;color:#000;padding:12px 20px;border:none;border-radius:8px;font-weight:bold;cursor:pointer;width:100%;margin:10px 0}
-input,select{width:90%;padding:10px;margin:8px 0;border-radius:5px;border:none}
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#0a1a2a; color:#fff; text-align:center; padding-bottom:50px; }
+
+/* TOP NAV */
+.navbar { background:#000; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; }
+.navbar .logo { color:white; font-size:18px; font-weight:bold; display:flex; align-items:center; }
+.navbar .logo img { height:30px; margin-right:8px; border-radius:5px; }
+.navbar a { color:white; margin:0 8px; text-decoration:none; font-weight:bold; font-size:14px; }
+.navbar a:hover { color:#00c853; }
+
+/* DASHBOARD CONTENT */
+.box { background:#1a2a3a; padding:25px; border-radius:12px; max-width:400px; margin:20px auto; }
+.box h2 { color:#00c853; margin-bottom:15px; }
+.btn { background:#00c853; color:#000; padding:12px 20px; border:none; border-radius:8px; font-size:16px; font-weight:bold; cursor:pointer; width:90%; margin:8px 0; }
+.btn:hover { background:#00e676; }
+input,select { width:90%; padding:10px; margin:8px 0; border:none; border-radius:5px; }
 </style>
 </head>
 <body>
+
+<!-- NAVBAR - THIS JOINS ALL PAGES -->
 <div class="navbar">
   <div class="logo">
     <img src="images/logo.png" alt="Logo"> WATCHEARN GH
@@ -23,29 +33,27 @@ input,select{width:90%;padding:10px;margin:8px 0;border-radius:5px;border:none}
   <div>
     <a href="index.html">Home</a>
     <a href="dashboard.html">Dashboard</a>
-    <a href="admin.html">Admin</a>  <!-- THIS IS THE ADMIN LINK -->
+    <a href="admin.html">Admin</a>
   </div>
 </div>
 
+<!-- YOUR DASHBOARD CONTENT -->
 <div class="box">
   <h2>Your Balance: 0.50GHS</h2>
-  
-  <h3>Choose Video</h3>
-  <button class="btn">▶ Video 1 - Earn 0.10GHS</button>
-  <button class="btn">▶ Video 2 - Earn 0.10GHS</button>
 
-  <h3 style="margin-top:30px">Withdraw to Mobile Money</h3>
+  <h3>Choose Video</h3>
+  <button class="btn">▶️ Video 1 - Earn 0.10GHS</button>
+  <button class="btn">▶️ Video 2 - Earn 0.10GHS</button>
+
+  <h3 style="margin-top:30px;">Withdraw to Mobile Money</h3>
   <input type="text" placeholder="024xxxxxxxx">
   <select>
     <option>MTN MoMo</option>
     <option>Vodafone Cash</option>
     <option>AirtelTigo Money</option>
   </select>
-  <button class="btn" style="background:#007bff;color:white">Request Cashout</button>
+  <button class="btn" style="background:#007bff; color:white;">Request Withdrawal</button>
 </div>
+
 </body>
-</html> 
-
-
-  
-          
+</html>
