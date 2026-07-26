@@ -1,87 +1,70 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+  <title>Earn - Watchearn GH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WatchearnGh - Dashboard</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    .balance {
-      background: #00ff00;
-      color: #000;
-      padding: 20px;
-      border-radius: 15px;
-      font-size: 24px;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-    .watch-btn {
-      background: #00ff00;
-      color: #000;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    body{background:#0a1a2a;color:#fff;font-family:Arial;text-align:center;padding:20px}
+    .navbar{background:#000;padding:15px;margin:-20px -20px 20px -20px}
+    .navbar a{color:white;margin:10px;text-decoration:none}
+    .video-box{background:#1a2a3a;padding:20px;border-radius:12px;margin:20px auto;max-width:500px}
+    video{width:100%;border-radius:10px}
+    .btn{background:#00c853;color:white;padding:12px 25px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+    #timer{font-size:18px;color:#ffc107;margin:10px}
+    #balance{font-size:24px;color:#00c853}
   </style>
 </head>
 <body>
-
-  <h1>Welcome to WatchearnGh</h1>
-  
-  <div class="balance">
-    Balance: GH₵ 0.00
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Earn</a>
   </div>
 
-  <button class="watch-btn" onclick="alert('Ad will play here')">Watch Ad + GH₵5</button>
+  <h1>Your Balance: <span id="balance">0.00</span> GHS</h1>
 
-  <!-- ALL YOUR OTHER DASHBOARD CONTENT GOES HERE -->
-
-
-<!-- ===== BACKGROUND MUSIC CODE START ===== -->
-<!-- Music Player -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Your browser does not support audio
-</audio>
-
-<!-- Music On/Off Button -->
-<button onclick="toggleMusic()" id="musicBtn" style="background:#00ff00; color:#000; border:none; padding:10px 15px; border-radius:20px; position:fixed; top:15px; right:15px; z-index:999; font-weight:bold; cursor:pointer;">
-  🔊 ON
-</button>
+  <div class="video-box">
+    <h3>Watch & Earn 0.10GHS</h3>
+    <video id="earnVideo" controls></video>
+    <p id="timer">Click "Play Video" to start</p>
+    <button class="btn" onclick="playRandomVideo()">▶️ Play Video</button>
+  </div>
 
 <script>
-let music = document.getElementById('bgMusic');
-let btn = document.getElementById('musicBtn');
+  let balance = parseFloat(localStorage.getItem('balance')) || 0;
+  document.getElementById('balance').innerText = balance.toFixed(2);
 
-// Phones need 1 click to start music
-document.addEventListener('click', function startOnce() {
-  music.play().catch(()=>{});
-  document.removeEventListener('click', startOnce);
-}, {once: true});
+  const videos = [
+    "videos/video1.mp4",
+    "videos/video2.mp4", 
+    "videos/video3.mp4"
+  ];
 
-function toggleMusic() {
-  if(music.paused) {
-    music.play(); 
-    btn.innerHTML = "🔊 ON";
-  } else {
-    music.pause(); 
-    btn.innerHTML = "🔇 OFF";
+  function playRandomVideo(){
+    let randomVid = videos[Math.floor(Math.random() * videos.length)];
+    let vid = document.getElementById('earnVideo');
+    vid.src = randomVid;
+    vid.play();
+
+    let timeLeft = 30;
+    document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
+    
+    let countdown = setInterval(() => {
+      timeLeft--;
+      document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
+      
+      if(timeLeft <= 0){
+        clearInterval(countdown);
+        balance += 0.10;
+        localStorage.setItem('balance', balance);
+        document.getElementById('balance').innerText = balance.toFixed(2);
+        document.getElementById('timer').innerText = "+0.10GHS Added! Click Play Again";
+        vid.pause();
+      }
+    }, 1000);
   }
-}
 </script>
-<!-- ===== BACKGROUND MUSIC CODE END ===== -->
-
 </body>
-</html> 
+  </html> 
    
      
