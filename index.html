@@ -3,189 +3,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Watchearn GH - Earn Cash & Gift Cards</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- ADS CODE -->
-  <script src='https://adsgram.ai/js/adsgram.js'></script>
-  <script src='//monetag.com/js/p.js' data-zone='PUT_MONETAG_ID'></script>
-  
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-    body { background:#0a1a2a; color:#333; }
-    
-    /* TOP NAV */
-    .navbar { background:#0a1a2a; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; }
-    .logo { color:white; font-size:20px; font-weight:bold; display:flex; align-items:center; gap:8px; }
-    .logo span { background:#00c853; padding:4px 6px; border-radius:4px; }
-    .nav-btns button { padding:8px 18px; border-radius:8px; border:2px solid white; background:transparent; color:white; font-weight:bold; cursor:pointer; }
-    .nav-btns .signup { background:#00c853; border-color:#00c853; margin-left:10px; }
-    
-    /* HERO */
-    .hero { text-align:center; padding:30px 15px; color:white; }
-    .hero h1 { font-size:28px; }
-    .hero h1 span { color:#ffc107; }
-    .hero p { margin-top:8px; font-size:14px; opacity:0.9; }
-    
-    /* WHITE CARD */
-    .card { background:white; max-width:420px; margin:20px auto; border-radius:12px; padding:0; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
-    .card-banner { background:#ffc107; color:#000; text-align:center; padding:10px; font-weight:bold; }
-    .card-body { padding:25px; }
-    .card-body h2 { text-align:center; margin-bottom:20px; }
-    .card-body input { width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; }
-    .card-body button { width:100%; padding:14px; background:#00c853; color:white; border:none; border-radius:8px; font-size:16px; font-weight:bold; cursor:pointer; margin-top:10px; }
-    .terms { font-size:12px; text-align:center; margin:15px 0; color:#666; }
-    .terms a { color:#007bff; text-decoration:none; }
-    .divider { text-align:center; margin:15px 0; color:#999; }
-    .fb-btn { width:100%; padding:12px; background:#1877f2; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
-    
-    /* INFO SECTION */
-    .info { text-align:center; color:white; padding:20px; }
-    .info p { margin:5px 0; }
-    
-    /* DASHBOARD SECTION - HIDDEN AT FIRST */
-    #dashboard { display:none; padding:20px; max-width:500px; margin:auto; }
-    .balance-box { background:#222; color:white; padding:20px; border-radius:10px; text-align:center; margin-bottom:15px; }
-    .video-btn { width:100%; padding:15px; background:#00c853; color:white; border:none; border-radius:10px; font-size:16px; margin:8px 0; cursor:pointer; }
-    #earnVideo { width:100%; border-radius:10px; margin-top:10px; }
-    #timer { color:yellow; font-size:18px; text-align:center; }
-    
-    /* BOTTOM NAV */
-    .bottom-nav { position:fixed; bottom:0; width:100%; background:white; display:flex; justify-content:space-around; padding:10px 0; border-top:1px solid #ddd; }
-    .bottom-nav div { text-align:center; font-size:12px; color:#666; cursor:pointer; }
-    .bottom-nav .active { color:#00c853; font-weight:bold; }
-  </style>
+<title>Watchearn GH - Earn by Watching</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ADS CODE -->
+<script src='https://adsgram.ai/js/adsgram.js'></script>
+<script src='//monetag.com/js/p.js' data-zone='PUT_MONETAG_ID'></script>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#0a1a2a; color:#fff; text-align:center; }
+
+/* TOP NAV - NEW */
+.navbar { background:#000; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; }
+.navbar .logo { color:white; font-size:18px; font-weight:bold; display:flex; align-items:center; }
+.navbar .logo img { height:30px; margin-right:8px; border-radius:5px; }
+.nav-btn { display:flex; gap:8px; }
+.nav-btn a { color:white; text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:bold; font-size:14px; }
+.btn-signin { border:2px solid white; }
+.btn-signup { background:#00c853; }
+.nav-btn a:hover { opacity:0.8; }
+
+/* YOUR ORIGINAL DESIGN */
+.container { padding:20px; }
+.bonus { background:#ffc107; color:#000; padding:12px; border-radius:10px; font-weight:bold; margin-bottom:15px; }
+.card { background:#fff; color:#000; padding:25px; border-radius:12px; max-width:400px; margin:0 auto; }
+.card h2 { margin-bottom:15px; }
+.card input { width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:6px; }
+.btn-green { background:#00c853; color:#fff; padding:14px; border:none; border-radius:8px; width:100%; font-size:16px; font-weight:bold; margin:10px 0; cursor:pointer; }
+.btn-green:hover { background:#00e676; }
+.links { font-size:13px; margin:10px 0; }
+.links a { color:#007bff; text-decoration:none; }
+
+.balance { background:#111; padding:15px; border-radius:10px; margin:20px auto; max-width:400px; font-size:20px; font-weight:bold; }
+.video-btn { background:#00c853; color:#fff; padding:14px; border:none; border-radius:8px; width:90%; max-width:400px; font-size:16px; font-weight:bold; margin:8px auto; display:block; cursor:pointer; }
+
+.bottom-nav { position:fixed; bottom:0; left:0; width:100%; background:#fff; display:flex; justify-content:space-around; padding:10px 0; }
+.bottom-nav a { color:#00c853; text-decoration:none; font-size:12px; font-weight:bold; }
+</style>
 </head>
 <body>
 
-  <!-- TOP NAV -->
-  <div class="navbar">
-    <div class="logo"><span>W</span> WATCHEARN GH</div>
-    <div class="nav-btns">
-      <button onclick="showLogin()">Sign In</button>
-      <button class="signup" onclick="showLogin()">Sign Up</button>
-    </div>
+<!-- NEW TOP NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="images/logo.png" alt="W"> WATCHEARN GH
+  </div>
+  <div class="nav-btn">
+    <a href="dashboard.html" class="btn-signin">Sign In</a>
+    <a href="admin.html" class="btn-signup">Admin</a>
+  </div>
+</div>
+
+<!-- YOUR ORIGINAL CONTENT -->
+<div class="container">
+  <div class="bonus">🎁 0.50GHS FREE BONUS</div>
+  
+  <div class="card">
+    <h2>Create Account</h2>
+    <input type="email" placeholder="Email" value="ayimbilajeremiah@gmail.com">
+    <input type="password" placeholder="Password">
+    <button class="btn-green">Continue</button>
+    <div class="links">By signing up, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a></div>
+    <div>---- or sign up with ----</div>
+    <button class="btn-green">📘 Sign Up with Facebook</button>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Watch Easy Videos.<br><span>Earn Cash and Mobile Money.</span></h1>
-    <p>Get paid for watching videos and ads</p>
-  </div>
+  <div class="balance">Your Balance: 0.50GHS</div>
 
-  <!-- SIGNUP CARD -->
-  <div class="card" id="signupCard">
-    <div class="card-banner">🎁 0.50GHS FREE BONUS</div>
-    <div class="card-body">
-      <h2>Create Account</h2>
-      <input type="email" id="email" placeholder="Email Address">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="login()">Continue</button>
-      <div class="terms">
-        By signing up, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>
-      </div>
-      <div class="divider">——— or sign up with ———</div>
-      <button class="fb-btn">📘 Sign Up with Facebook</button>
-    </div>
-  </div>
+  <h3>Choose Video</h3>
+  <button class="video-btn">▶️ Video 1 - Earn 0.10GHS</button>
+  <button class="video-btn">▶️ Video 2 - Earn 0.10GHS</button>
+  
+  <div style="height:60px;"></div>
+</div>
 
-  <!-- INFO -->
-  <div class="info">
-    <p>💰 Earn up to 2.00GHS per video</p>
-    <p>100+ videos available in Ghana 🇬🇭</p>
-  </div>
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="#">📹 Videos</a>
+  <a href="#">🎁 Rewards</a>
+</div>
 
-  <!-- DASHBOARD - SHOWS AFTER LOGIN -->
-  <div id="dashboard">
-    <div class="balance-box">
-      <h2>Your Balance: <span id="balance">0.50</span>GHS</h2>
-    </div>
-
-    <!-- PROPELLER AD -->
-    <div id="propeller-zone-PUT_PROPELLER_ID"></div>
-    <script async src="//ads.propellerads.com/ads.js"></script>
-
-    <h3 style="color:white; text-align:center;">Choose Video</h3>
-    <button class="video-btn" onclick="startEarning('videos/video1.mp4')">▶️ Video 1 - Earn 0.10GHS</button>
-    <button class="video-btn" onclick="startEarning('videos/video2.mp4')">▶️ Video 2 - Earn 0.10GHS</button>
-
-    <video id="earnVideo" controls></video>
-    <p id="timer"></p>
-
-    <div class="balance-box">
-      <h3>Withdraw to Mobile Money</h3>
-      <input type="text" id="momoNumber" placeholder="024xxxxxxx" style="width:100%; padding:12px; margin:8px 0; border-radius:8px; border:none;">
-      <select id="network" style="width:100%; padding:12px; margin:8px 0; border-radius:8px; border:none;">
-        <option>MTN MoMo</option><option>Telecel Cash</option><option>Vodafone Cash</option>
-      </select>
-      <button class="video-btn" style="background:#007bff;" onclick="requestWithdrawal()">Request Cashout</button>
-    </div>
-  </div>
-
-  <!-- BOTTOM NAV -->
-  <div class="bottom-nav">
-    <div class="active">📺<br>Videos</div>
-    <div onclick="alert('Coming Soon')">🎁<br>Rewards</div>
-  </div>
-
-<script>
-let balance = parseFloat(localStorage.getItem('balance')) || 0.50; // 0.50 bonus
-document.getElementById('balance').innerText = balance.toFixed(2);
-
-function showLogin(){
-  document.getElementById('signupCard').style.display='block';
-}
-
-function login(){
-  localStorage.setItem('loggedIn','true');
-  document.getElementById('signupCard').style.display='none';
-  document.getElementById('dashboard').style.display='block';
-  document.querySelector('.hero').style.display='none';
-  document.querySelector('.info').style.display='none';
-}
-
-// Auto login if already logged in
-if(localStorage.getItem('loggedIn')=='true'){
-  login();
-}
-
-function startEarning(videoFile){
-  window.Adsgram.init({blockId: "PUT_ADSGRAM_ID"}).show().then(() => {
-    let vid = document.getElementById('earnVideo');
-    vid.src = videoFile;
-    vid.play();
-    let timeLeft = 30;
-    document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
-    let countdown = setInterval(() => {
-      timeLeft--;
-      document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
-      if(timeLeft <= 0){
-        clearInterval(countdown);
-        balance += 0.10;
-        localStorage.setItem('balance', balance);
-        document.getElementById('balance').innerText = balance.toFixed(2);
-        document.getElementById('timer').innerText = "+0.10GHS Added!";
-      }
-    }, 1000);
-  });
-}
-
-function requestWithdrawal(){
-  let num = document.getElementById('momoNumber').value;
-  let net = document.getElementById('network').value;
-  let yourWhatsApp = "233500609622";
-  if(num.length < 10){ alert("Enter correct MoMo number"); return; }
-  if(balance < 5){ alert("Minimum 5.00GHS to withdraw"); return; }
-  let message = `🔥 NEW WITHDRAWAL REQUEST 🔥%0A%0AAmount: ${balance.toFixed(2)}GHS%0AMoMo Number: ${num}%0ANetwork: ${net}`;
-  window.open(`https://wa.me/${yourWhatsApp}?text=${message}`, '_blank');
-  alert("Request sent! I will send your money in 24hrs");
-  balance = 0;
-  localStorage.setItem('balance', balance);
-  document.getElementById('balance').innerText = balance.toFixed(2);
-}
-</script>
 </body>
-</html>
-
-
-
+</html> 
