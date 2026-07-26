@@ -1,48 +1,109 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WatchearnGh - Earn Watching Ads</title>
-<style>
-  body {background:#000; color:#0f0; font-family:Arial; text-align:center; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+  <title>Watchearn GH - Watch & Earn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  .logo {width:100px; height:100px; margin:20px auto; background:linear-gradient(135deg,#00ff00,#00aa00); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:bold; color:#000;}
+  <!-- ADS CODE -->
+  <script src='https://adsgram.ai/js/adsgram.js'></script>
+  <script src='//monetag.com/js/p.js' data-zone='PUT_MONETAG_ID'></script>
   
-  .content {padding:20px; flex:1;}
-  h1 {font-size:28px; margin-bottom:10px;}
-  p {font-size:15px; margin-bottom:20px; line-height:1.6;}
-  
-  .features {text-align:left; max-width:320px; margin:20px auto; font-size:14px;}
-  .feature {display:flex; align-items:center; margin:12px 0; gap:10px;}
-  .icon {font-size:20px;}
-  
-  .bottom-buttons {padding:20px; background:#111; border-top:1px solid #0f0;}
-  .btn {display:block; width:90%; max-width:320px; margin:10px auto; padding:14px; border-radius:8px; font-weight:bold; font-size:17px; text-decoration:none;}
-  .btn-register {background:#00ff00; color:#000;}
-  .btn-login {background:transparent; color:#0f0; border:1px solid #0f0; font-size:15px;}
-</style>
+  <style>
+    body { font-family: Arial; background: #111; color: white; text-align: center; padding: 15px; }
+    .box { background: #222; padding: 15px; border-radius: 10px; margin: 15px 0; }
+    button { display:block; margin:10px auto; padding:15px; width:95%; background:#25D366; color:white; border:none; border-radius:10px; font-size:16px; font-weight:bold; }
+    button:disabled { background:gray; }
+    input, select { padding:12px; width:90%; margin:5px 0; border-radius:8px; border:none; }
+    video { width:100%; border-radius:10px; margin-top:15px; }
+    #timer { font-size:20px; color:yellow; }
+  </style>
 </head>
 <body>
-  <div class="content">
-    <div class="logo">WG</div>
-    <h1>WatchearnGh 🇬🇭</h1>
-    <p>Watch ads and earn real money straight to Mobile Money</p>
+  <h1>Watchearn GH 🇬🇭</h1>
+
+  <!-- BALANCE -->
+  <div class="box">
+    <h2>Your Balance: <span id="balance">0.00</span>GHS</h2>
+    <p>Watch full 30s to earn 0.10GHS</p>
+    <p>Minimum Withdraw: 5.00GHS</p>
+  </div>
+
+  <!-- PROPELLER AD -->
+  <div id="propeller-zone-PUT_PROPELLER_ID"></div>
+  <script async src="//ads.propellerads.com/ads.js"></script>
+
+  <!-- VIDEOS -->
+  <h3>Choose Video</h3>
+  <button onclick="startEarning('videos/video1.mp4')">▶️ Video 1</button>
+  <button onclick="startEarning('videos/video2.mp4')">▶️ Video 2</button>
+  <button onclick="startEarning('videos/video3.mp4')">▶️ Video 3</button>
+  <!-- Copy this for 100 videos -->
+
+  <video id="earnVideo" controls></video>
+  <p id="timer"></p>
+
+  <!-- WITHDRAW -->
+  <div class="box">
+    <h2>Withdraw to Mobile Money</h2>
+    <input type="text" id="momoNumber" placeholder="024xxxxxxx">
+    <select id="network">
+      <option>MTN MoMo</option>
+      <option>Telecel Cash</option>
+      <option>Vodafone Cash</option>
+    </select>
+    <button onclick="requestWithdrawal()" style="background:#007bff;">Request Cashout to WhatsApp</button>
+  </div>
+
+<script>
+let balance = parseFloat(localStorage.getItem('balance')) || 0;
+document.getElementById('balance').innerText = balance.toFixed(2);
+
+function startEarning(videoFile){
+  // SHOW AD FIRST
+  window.Adsgram.init({blockId: "PUT_ADSGRAM_ID"}).show().then(() => {
+    let vid = document.getElementById('earnVideo');
+    vid.src = videoFile;
+    vid.play();
     
-    <div class="features">
-      <div class="feature"><span class="icon">💰</span> Earn 0.10 GHS per ad</div>
-      <div class="feature"><span class="icon">📱</span> Withdraw from 5 GHS to MoMo</div>
-      <div class="feature"><span class="icon">⚡</span> Instant Payout</div>
-      <div class="feature"><span class="icon">🎁</span> 100% Free to Join</div>
-    </div>
-  </div>
+    let timeLeft = 30; // Must watch 30s
+    document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
+    
+    let countdown = setInterval(() => {
+      timeLeft--;
+      document.getElementById('timer').innerText = "Watch for " + timeLeft + "s";
+      if(timeLeft <= 0){
+        clearInterval(countdown);
+        balance += 0.10;
+        localStorage.setItem('balance', balance);
+        document.getElementById('balance').innerText = balance.toFixed(2);
+        document.getElementById('timer').innerText = "+0.10GHS Added!";
+      }
+    }, 1000);
+  });
+}
+
+function requestWithdrawal(){
+  let num = document.getElementById('momoNumber').value;
+  let net = document.getElementById('network').value;
+  let yourWhatsApp = "233500609622"; // <-- YOUR NUMBER IS HERE
   
-  <div class="bottom-buttons">
-    <a href="register.html" class="btn btn-register">Register Now</a>
-    <a href="login.html" class="btn btn-login">Already have an account? Login</a>
-  </div>
+  if(num.length < 10){ alert("Enter correct MoMo number"); return; }
+  if(balance < 5){ alert("Minimum 5.00GHS to withdraw"); return; }
+  
+  // OPEN WHATSAPP WITH MESSAGE
+  let message = `🔥 NEW WITHDRAWAL REQUEST 🔥%0A%0AAmount: ${balance.toFixed(2)}GHS%0AMoMo Number: ${num}%0ANetwork: ${net}%0ATime: ${new Date().toLocaleString()}`;
+  window.open(`https://wa.me/${yourWhatsApp}?text=${message}`, '_blank');
+  
+  alert("Request sent! I will send your money in 24hrs");
+  
+  balance = 0;
+  localStorage.setItem('balance', balance);
+  document.getElementById('balance').innerText = balance.toFixed(2);
+}
+</script>
 </body>
-</html> 
+</html>
+
 
 
