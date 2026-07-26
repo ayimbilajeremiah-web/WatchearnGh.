@@ -35,6 +35,32 @@
         alert('Please fill all fields');
       }
     }
-  </script>
+  </script> 
+  <!-- BACKGROUND MUSIC -->
+<audio id="bgmusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:70px;right:15px;background:#00c853;color:white;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;z-index:999;">🔇</button>
+
+<script>
+let music = document.getElementById('bgmusic');
+let btn = document.getElementById('musicBtn');
+let playing = false;
+
+function toggleMusic(){
+  if(playing){
+    music.pause();
+    btn.innerHTML = '🔇';
+    playing = false;
+  } else {
+    music.play();
+    btn.innerHTML = '🔊';
+    playing = true;
+  }
+}
+</script> 
+
 </body>
 </html>
