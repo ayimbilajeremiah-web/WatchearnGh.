@@ -1,5 +1,4 @@
-
-
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +12,15 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
 body { background:#0a1a2a; color:#fff; text-align:center; }
 
-/* TOP NAV - NEW */
-.navbar { background:#000; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; }
+/* TOP NAV - THIS IS THE JOIN */
+.navbar { background:#000; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:999; }
 .navbar .logo { color:white; font-size:18px; font-weight:bold; display:flex; align-items:center; }
 .navbar .logo img { height:30px; margin-right:8px; border-radius:5px; }
-.nav-btn { display:flex; gap:8px; }
-.nav-btn a { color:white; text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:bold; font-size:14px; }
-.btn-signin { border:2px solid white; }
-.btn-signup { background:#00c853; }
-.nav-btn a:hover { opacity:0.8; }
+.nav-links a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; font-size:15px; }
+.nav-links a:hover { color:#00c853; }
 
-/* YOUR ORIGINAL DESIGN */
-.container { padding:20px; }
+/* YOUR DESIGN */
+.container { padding:20px; padding-bottom:80px; }
 .bonus { background:#ffc107; color:#000; padding:12px; border-radius:10px; font-weight:bold; margin-bottom:15px; }
 .card { background:#fff; color:#000; padding:25px; border-radius:12px; max-width:400px; margin:0 auto; }
 .card h2 { margin-bottom:15px; }
@@ -37,24 +33,29 @@ body { background:#0a1a2a; color:#fff; text-align:center; }
 .balance { background:#111; padding:15px; border-radius:10px; margin:20px auto; max-width:400px; font-size:20px; font-weight:bold; }
 .video-btn { background:#00c853; color:#fff; padding:14px; border:none; border-radius:8px; width:90%; max-width:400px; font-size:16px; font-weight:bold; margin:8px auto; display:block; cursor:pointer; }
 
+/* FOOTER */
+.footer { background:#000; padding:20px; text-align:center; font-size:13px; }
+.footer a { color:#00c853; text-decoration:none; margin:0 10px; }
+
 .bottom-nav { position:fixed; bottom:0; left:0; width:100%; background:#fff; display:flex; justify-content:space-around; padding:10px 0; }
 .bottom-nav a { color:#00c853; text-decoration:none; font-size:12px; font-weight:bold; }
 </style>
 </head>
 <body>
 
-<!-- NEW TOP NAVBAR -->
+<!-- TOP NAVBAR - THE JOIN -->
 <div class="navbar">
   <div class="logo">
     <img src="images/logo.png" alt="W"> WATCHEARN GH
   </div>
-  <div class="nav-btn">
-    <a href="dashboard.html" class="btn-signin">Sign In</a>
-    <a href="admin.html" class="btn-signup">Admin</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="admin.html">Admin</a>
   </div>
 </div>
 
-<!-- YOUR ORIGINAL CONTENT -->
+<!-- YOUR CONTENT -->
 <div class="container">
   <div class="bonus">🎁 0.50GHS FREE BONUS</div>
   
@@ -63,8 +64,7 @@ body { background:#0a1a2a; color:#fff; text-align:center; }
     <input type="email" placeholder="Email" value="ayimbilajeremiah@gmail.com">
     <input type="password" placeholder="Password">
     <button class="btn-green">Continue</button>
-    <div class="links">By signing up, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a></div>
-    <div>---- or sign up with ----</div>
+    <div class="links">By signing up, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a></div>
     <button class="btn-green">📘 Sign Up with Facebook</button>
   </div>
 
@@ -73,15 +73,20 @@ body { background:#0a1a2a; color:#fff; text-align:center; }
   <h3>Choose Video</h3>
   <button class="video-btn">▶️ Video 1 - Earn 0.10GHS</button>
   <button class="video-btn">▶️ Video 2 - Earn 0.10GHS</button>
-  
-  <div style="height:60px;"></div>
+</div>
+
+<!-- FOOTER WITH PRIVACY -->
+<div class="footer">
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <p style="margin-top:10px;color:#aaa;">© 2026 Watchearn GH</p>
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <a href="#">📹 Videos</a>
+  <a href="dashboard.html">📹 Videos</a>
   <a href="#">🎁 Rewards</a>
 </div>
 
 </body>
-</html> 
+  </html> 
