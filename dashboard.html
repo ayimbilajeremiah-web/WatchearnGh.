@@ -1,94 +1,125 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dashboard - Watchearn GH</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ADS CODE -->
-<script src='https://adsgram.ai/js/adsgram.js'></script>
-<script src='//monetag.com/js/p.js' data-zone='PUT_MONETAG_ID'></script>
-
+<title>WatchEarn GH - Dashboard</title>
 <style>
-body{background:#0a1a2a;color:#fff;font-family:Arial;margin:0;padding:0}
-.navbar{background:#000;padding:15px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0}
-.navbar .logo{display:flex;align-items:center;color:#fff;font-weight:bold}
-.navbar .logo img{height:35px;margin-right:8px;border-radius:5px}
-.navbar a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
-.navbar a:hover{color:#00c853}
-.box{background:#1a2a3a;padding:20px;border-radius:12px;max-width:500px;margin:20px auto}
-.btn{background:#00c853;color:white;padding:14px;border:none;border-radius:8px;width:90%;margin:8px auto;display:block;font-weight:bold;cursor:pointer}
-.btn:hover{background:#00e676}
-input,select{width:90%;padding:10px;margin:8px 0;border:none;border-radius:6px}
-.footer{background:#000;padding:20px;text-align:center;font-size:13px;margin-top:30px}
-.footer a{color:#00c853;text-decoration:none;margin:0 10px}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    padding-bottom: 80px;
+  }
+  /* NAVBAR */
+  .navbar {
+    background: #1a1a1a;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #00c853;
+  }
+  .navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00c853;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .navbar .logo img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  
+  /* MAIN BOX */
+  .box {
+    background: #1a1a1a;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,200,83,0.2);
+  }
+  .box h3 {
+    color: #00c853;
+    margin-top: 0;
+  }
+  .balance {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00c853;
+  }
+  
+  /* BUTTONS */
+  .btn {
+    background: #00c853;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+  }
+
+  /* MUSIC BUTTON */
+  #musicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #00c853;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+  }
 </style>
 </head>
-<body> 
+<body>
 
 <!-- NAVBAR - THIS JOINS ALL PAGES -->
 <div class="navbar">
   <div class="logo">
     <img src="images/logo.png" alt="Logo"> WATCHEARN GH
   </div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="admin.html">Admin</a>
-  </div>
 </div>
 
-<!-- YOUR DASHBOARD CONTENT -->
+<!-- MAIN CONTENT -->
 <div class="box">
-  <h2>Your Balance: 0.50GHS</h2>
+  <h3>Your Balance</h3>
+  <p class="balance">0.00 GHS</p>
 
-  <h3>Choose Video</h3>
-  <button class="btn">▶️ Video 1 - Earn 0.10GHS</button>
-  <button class="btn">▶️ Video 2 - Earn 0.10GHS</button>
+  <h3>Watch Videos & Earn 0.10GHS</h3>
 
-  <h3 style="margin-top:30px;">Withdraw to Mobile Money</h3>
-  <input type="text" placeholder="024xxxxxxxx">
-  <select>
-    <option>MTN MoMo</option>
-    <option>Vodafone Cash</option>
-    <option>AirtelTigo Money</option>
-  </select>
-  <button class="btn" style="background:#007bff;">Request Withdrawal</button>
-  
-  <div style="font-size:12px;margin-top:10px;">By using this site you agree to our <a href="privacy.html" style="color:#00c853;">Privacy Policy</a></div>
+  <!-- YOUR VIDEO PLAYER -->
+  <video id="earnVideo" width="100%" controls style="border-radius:10px;margin:10px 0;">
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+
+  <button id="claimBtn" class="btn" onclick="claimReward()" disabled>
+    Watch video to unlock
+  </button>
 </div>
 
-<!-- FOOTER WITH PRIVACY LINK -->
-<div class="footer">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <p style="margin-top:10px;color:#aaa;">© 2026 Watchearn GH</p>
-</div> 
-  <!-- BACKGROUND MUSIC -->
-<audio id="bgmusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Your browser does not support audio.
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mp3">
 </audio>
-
-<button id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:70px;right:15px;background:#00c853;color:white;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;z-index:999;">🔇</button>
+<button id="musicBtn" onclick="toggleMusic()">🔇</button>
 
 <script>
-let music = document.getElementById('bgmusic');
-let btn = document.getElementById('musicBtn');
-let playing = false;
-
-function toggleMusic(){
-  if(playing){
-    music.pause();
-    btn.innerHTML = '🔇';
-    playing = false;
-  } else {
-    music.play();
-    btn.innerHTML = '🔊';
-    playing = true;
-  }
-}
-</script> 
- 
-
-</body>
-</html> 
+  // VIDEO EARNING SYSTEM
+  let video = document.getElement
